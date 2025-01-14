@@ -1,13 +1,10 @@
-// importo la section del movies
-import Movies from "./Movies";
-// importo la section del seris
-import Series from "./Series";
-
+import MovieResults from "./MovieResults";
+import SeriesResults from "./SerieResults";
 function Main() {
   return (
     <>
-      <Movies />
-      <Series />
+      <MovieResults />
+      <SeriesResults />
     </>
   );
 }

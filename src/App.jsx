@@ -12,7 +12,10 @@ function App() {
     <>
       <GlobalProvider>
         <Header />
-        <Main />
+
+        <div className="container bg-black text-white mt-3">
+          <Main />
+        </div>
       </GlobalProvider>
     </>
   );
