@@ -7,3 +7,7 @@
 body {
   background-color: grey;
 }
+
+.flags {
+  width: 20px;
+}

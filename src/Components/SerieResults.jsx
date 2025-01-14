@@ -1,8 +1,17 @@
 import { useContext } from "react";
 import { GlobalContext } from "../Context/GlobalContext";
 
+const langFlag = ["en", "it", "fr", "es", "de", "us", "ja", "ko"];
+
 function SeriesResults() {
   const { Series, searchDone } = useContext(GlobalContext);
+
+  const getFlagCode = (language) => {
+    const code = langFlag.includes(language.toLowerCase())
+      ? `${language.toLowerCase()}.png`
+      : "placeholder.jpg";
+    return code;
+  };
 
   return (
     <>
@@ -24,13 +33,19 @@ function SeriesResults() {
                     {/* Se searchDone è true, mostra i dettagli */}
                     <img
                       src={`https://image.tmdb.org/t/p/w500${serie.poster_path}`}
-                      className="card-img-top"
+                      className="card-img-top "
                       alt={serie.name}
                     />
                     <h5 className="card-title">{serie.name}</h5>
-                    <p className="card-text">
-                      {"Lingua: " + serie.original_language}
-                    </p>
+                    <div className="card-text">
+                      <span>lingua :</span>
+                      {/* Bandiera */}
+                      <img
+                        className="flags"
+                        src={`/flags/${getFlagCode(serie.original_language)}`}
+                        alt={serie.original_language}
+                      />
+                    </div>
                     <p className="card-text">{"Voto: " + serie.vote_average}</p>
                   </div>
                 )}

@@ -1,9 +1,14 @@
 import { useContext } from "react";
 import { GlobalContext } from "../Context/GlobalContext";
-
+const langFlag = ["en", "it", "fr", "es", "de", "us", "ja", "ko"];
 function MoviesResults() {
   const { Movies, searchDone } = useContext(GlobalContext);
-
+  const getFlagCode = (language) => {
+    const code = langFlag.includes(language.toLowerCase())
+      ? `${language.toLowerCase()}.png`
+      : "placeholder.jpg";
+    return code;
+  };
   return (
     <>
       <h3>Film Trovati</h3>
@@ -28,9 +33,14 @@ function MoviesResults() {
                       alt={movie.title}
                     />
                     <h5 className="card-title">{movie.title}</h5>
-                    <p className="card-text">
-                      {"Lingua: " + movie.original_language}
-                    </p>
+                    <div className="card-text">
+                      <span> lingua : </span>
+                      <img
+                        className="flags"
+                        src={`/flags/${getFlagCode(movie.original_language)}`}
+                        alt=""
+                      />
+                    </div>
                     <p className="card-text">{"Voto: " + movie.vote_average}</p>
                   </div>
                 )}
