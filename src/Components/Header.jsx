@@ -5,7 +5,7 @@ function Header() {
         <h2 className="w-25 text-danger"> Boolflix</h2>
         <div className="d-flex  justify-content-end  align-items-center g-5 ">
           <select
-            className="form-select w-25"
+            className="form-select w-50"
             aria-label="Default select example "
           >
             <option>Tutti i generi</option>

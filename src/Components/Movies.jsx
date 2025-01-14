@@ -1,5 +1,22 @@
+import { useContext } from "react";
+import { GlobalContext } from "../Context/GlobalContext";
+import Cards from "./Cards";
 function Movies() {
-  return <h1>Movies section </h1>;
+  const { Movies } = useContext(GlobalContext);
+
+  console.log(Movies);
+  const imgUrl = "https://image.tmdb.org/t/p/w200";
+  return (
+    <div className="bg-black d-flex flex-wrap p-3">
+      {Movies && Movies.length > 0
+        ? Movies.map((post) => (
+            <div key={post.id}>
+              <Cards image={`${imgUrl}${post.poster_path}`} nome={post.title} />
+            </div>
+          ))
+        : " array vuoto"}
+    </div>
+  );
 }
 
 export default Movies;

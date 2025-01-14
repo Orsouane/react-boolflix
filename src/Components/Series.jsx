@@ -1,5 +1,9 @@
 function Series() {
-  return <h1> Series section </h1>;
+  return (
+    <div className="bg-black">
+      <h1 className="text-light"> Series section </h1>
+    </div>
+  );
 }
 
 export default Series;

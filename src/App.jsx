@@ -5,11 +5,15 @@ import Header from "./Components/Header";
 import Main from "./Components/Main";
 import "./index.css";
 
+import { GlobalProvider } from "./Context/GlobalContext";
+
 function App() {
   return (
     <>
-      <Header />
-      <Main />
+      <GlobalProvider>
+        <Header />
+        <Main />
+      </GlobalProvider>
     </>
   );
 }
