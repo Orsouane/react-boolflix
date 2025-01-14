@@ -7,7 +7,7 @@ const GlobalContext = createContext();
 const url = "https://api.themoviedb.org/3/";
 const apikey = "1178f9d163f3f6e6446146dc43c4f22e";
 const MovieEndPoint = "movie/popular";
-const serieEndPoint = "tv/popular";
+const SerieEndPoint = "tv/popular";
 
 const GlobalProvider = ({ children }) => {
   const [Movies, setMovies] = useState([]);
@@ -22,10 +22,23 @@ const GlobalProvider = ({ children }) => {
         console.error("error", error);
       }
     };
+    const getSeriesData = async () => {
+      try {
+        const response = await axios.get(
+          `${url}${SerieEndPoint}?api_key=${apikey}`
+        );
+
+        console.log(response.data.results);
+        setSeries(response.data.results.slice(14, 20));
+      } catch (error) {
+        console.error("error", error);
+      }
+    };
+    getSeriesData();
     getMoviesData();
   }, []);
   return (
-    <GlobalContext.Provider value={{ Movies }}>
+    <GlobalContext.Provider value={{ Movies, Series }}>
       {children}
     </GlobalContext.Provider>
   );
