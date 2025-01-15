@@ -114,7 +114,9 @@ function SeriesResults() {
                         src={`/flags/${getFlagCode(serie.original_language)}`}
                         alt={serie.original_language}
                       />
-                      <p className="text-center m-2">{serie.overview}</p>
+                      <p className="text-center m-2">
+                        {serie.overview.slice(0, 150)}
+                      </p>
                     </div>
                   </div>
                 </div>

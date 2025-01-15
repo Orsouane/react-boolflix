@@ -35,7 +35,7 @@ const GlobalProvider = ({ children }) => {
         const response = await axios.get(
           `${url}${SerieEndPoint}?api_key=${apikey}`
         );
-        setSeries(response.data.results.slice(4, 8));
+        setSeries(response.data.results.slice(4, 12));
       } catch (error) {
         console.error("Error fetching series:", error);
       }
