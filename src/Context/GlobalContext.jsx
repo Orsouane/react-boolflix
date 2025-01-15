@@ -24,7 +24,7 @@ const GlobalProvider = ({ children }) => {
     const getMoviesData = async () => {
       try {
         const res = await axios.get(`${url}${MovieEndPoint}?api_key=${apikey}`);
-        setMovies(res.data.results.slice(12, 16));
+        setMovies(res.data.results.slice(8, 16));
       } catch (error) {
         console.error("Error fetching movies:", error);
       }
