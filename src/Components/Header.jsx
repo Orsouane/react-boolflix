@@ -79,7 +79,9 @@ function Header() {
   return (
     <div className="bg-black p-3">
       <div className="d-flex justify-content-between ">
-        <h2 className="w-25 text-danger"> Boolflix</h2>
+        <div className="w-25 text-danger">
+          <img style={{ width: "200px" }} src="/flags/logo.png" alt="" />
+        </div>
         <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
           <select
             className="form-select w-50"
