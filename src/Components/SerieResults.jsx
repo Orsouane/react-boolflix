@@ -12,7 +12,11 @@ function SeriesResults() {
       : "placeholder.jpg";
     return code;
   };
-
+  // contruire l'url
+  const getImageUrl = (poster_path, size = "w500") => {
+    const baseUrl = "http://image.tmdb.org/t/p/";
+    return `${baseUrl}${size}${poster_path}`;
+  };
   return (
     <>
       <h3>Serie Trovate</h3>
@@ -21,34 +25,49 @@ function SeriesResults() {
           Series.map((serie) => (
             <div key={serie.id} className="col-md-3 mb-4">
               <div className="card">
-                {/* Se searchDone è false, mostra solo l'immagine */}
-                {!searchDone ? (
-                  <img
-                    src={`https://image.tmdb.org/t/p/w500${serie.poster_path}`}
-                    className="card-img-top"
-                    alt={serie.name}
-                  />
-                ) : (
-                  <div className="card-body">
-                    {/* Se searchDone è true, mostra i dettagli */}
+                <div className="card-img-container">
+                  {/* Se searchDone è false, mostra solo l'immagine */}
+                  {!searchDone ? (
                     <img
-                      src={`https://image.tmdb.org/t/p/w500${serie.poster_path}`}
-                      className="card-img-top "
+                      src={getImageUrl(serie.poster_path, "w342")}
+                      className="card-img-top"
                       alt={serie.name}
                     />
-                    <h5 className="card-title">{serie.name}</h5>
-                    <div className="card-text">
-                      <span>lingua :</span>
-                      {/* Bandiera */}
+                  ) : (
+                    <div className="card-body">
+                      {/* Se searchDone è true, mostra i dettagli */}
                       <img
-                        className="flags"
-                        src={`/flags/${getFlagCode(serie.original_language)}`}
-                        alt={serie.original_language}
+                        src={getImageUrl(serie.poster_path, "w342")}
+                        className="card-img-top"
+                        alt={serie.name}
                       />
+                      <h5 className="card-title">{serie.name}</h5>
+                      <div className="card-text">
+                        <span>lingua :</span>
+                        {/* Bandiera */}
+                        <img
+                          className="flags"
+                          src={`/flags/${getFlagCode(serie.original_language)}`}
+                          alt={serie.original_language}
+                        />
+                      </div>
+                      <p className="card-text">
+                        {"Voto: " + serie.vote_average}
+                      </p>
                     </div>
-                    <p className="card-text">{"Voto: " + serie.vote_average}</p>
+                  )}
+                  {/* overlay */}
+                  <div className="card-overlay">
+                    <h3>{serie.title}</h3>
+                    <p> Voto:{serie.vote_average}</p>
+                    <img
+                      className="flags"
+                      src={`/flags/${getFlagCode(serie.original_language)}`}
+                      alt={serie.original_language}
+                    />
+                    <p className="text-center m-2">{serie.overview}</p>
                   </div>
-                )}
+                </div>
               </div>
             </div>
           ))}
