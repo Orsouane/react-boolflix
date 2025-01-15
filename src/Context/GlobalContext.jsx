@@ -11,33 +11,36 @@ const SerieEndPoint = "tv/popular";
 const GlobalProvider = ({ children }) => {
   const [Movies, setMovies] = useState([]);
   const [Series, setSeries] = useState([]);
+  // lo stato della ricerca (inizialmente false (non è fatta la ricerca ancora))
   const [searchDone, setSearchDone] = useState(false);
-  // è true solo dopo la ricerca
+  // è true solo dopo la ricerca(Funzioine per gestire la ricerca )
   const handleSearch = () => {
+    // quando la ricerca è fata aggiorno lo stato in "true"
     setSearchDone(true);
   };
 
   useEffect(() => {
+    // Chiedo le dati per i Movies
     const getMoviesData = async () => {
       try {
         const res = await axios.get(`${url}${MovieEndPoint}?api_key=${apikey}`);
-        setMovies(res.data.results.slice(8, 16));
+        setMovies(res.data.results.slice(12, 16));
       } catch (error) {
         console.error("Error fetching movies:", error);
       }
     };
-
+    // Chiedo le dati per i Series
     const getSeriesData = async () => {
       try {
         const response = await axios.get(
           `${url}${SerieEndPoint}?api_key=${apikey}`
         );
-        setSeries(response.data.results.slice(0, 8));
+        setSeries(response.data.results.slice(4, 8));
       } catch (error) {
         console.error("Error fetching series:", error);
       }
     };
-
+    // chiamo le due funzione sia del movies che del series
     getSeriesData();
     getMoviesData();
   }, []);
