@@ -1,150 +1,42 @@
+@import "tailwindcss";
+
+/* RESET */
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
-
-body {
-  background-color: black;
-}
-
-.flags {
-  width: 30px;
-}
-/*  */
-.container{
-      max-width: 1000px;
-        position: relative;
-  z-index: 1;
-}
-.card{
-      height: fit-content;
-}
-.wrapper {
-  max-width: 300px;
-  position: relative;
-  overflow: hidden;
-}
-
 .card-img-container {
-  position: relative;}
-/* Nascosto la barra di scorrimento */
-.container > div {
   position: relative;
-  ::-webkit-scrollbar {
+  margin: 2px;
+  
+}
+.card-overlay {
+  position: absolute;
+  top: 4px;
+  left: 0px;
+  right: 0px;
   display: none;
 }
 
-.card-overlay {
-  position: absolute;
-        top: 90px;
-        left: 70px;
-  right: 0;
-  bottom: 0;
-  color: white;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-         width: 50%;
-        height: 50%;
-}
-
 .card-img-container:hover .card-overlay {
-  opacity: 1;
-  transform: rotateX(7deg) translateY(-6px) scale(1.05);
-  transition: transform 0.35s ease-in-out;
+  display: block;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
-/* Carrousel */
+.details {
+/* border: 1px solid white; */
 
-.carousel-inner {
-  width: 100%;
+  background-color:rgba(0, 0, 0, 0.5);
+  width:100px
+  height: 100px;
 }
 
-/* button */
-.button-54 {
-  font-family: "Open Sans", sans-serif;
-  font-size: 16px;
-  letter-spacing: 2px;
-  text-decoration: none;
-  text-transform: uppercase;
-  color: red;
-  cursor: pointer;
- 
-  padding: 0.25em 0.5em;
-  box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px,
-    5px 5px 0px 0px;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
+
+.boxShad{
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
 }
 
-.button-54:active {
-  box-shadow: 0px 0px 0px 0px;
+.boxShad2{
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(50, 50, 90, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 }
-
-@media (min-width: 768px) {
-  .button-54 {
-    padding: 0.25em 0.75em;
-  }
-}
-
-.button-left {
-position: absolute;
-  left: -100px;
-  top: 50%;
-  transform: translateY(-50%);
-  border: none;
-  font-size: 2rem;
-  cursor: pointer;
-  z-index: 10;
-    color: red;
-  background-color:black;
-  border:1px solid red ;
-}
-.button-left2 {
-  position: absolute;
-  left: -100px;
-  top: 40%;
-  transform: translateY(50%);
-  border: none;
-  font-size: 2rem;
-  cursor: pointer;
-  z-index: 10;
-    color: red;
-  background-color:black;
-  border:1px solid red ;
-}
-
-.button-right {
-  position: absolute;
-  right: -100px;
-  top: 50%;
-  transform: translateY(-50%);
-  border: none;
-  font-size: 2rem;
-  cursor: pointer;
-  z-index: 10;
-   color: red;
-  background-color:black;
-  border:1px solid red ;
-}
-
-.button-right2 {
-  position: absolute;
-  right: -100px;
-  top: 40%;
-  transform: translateY(50%);
-  border: none;
-  font-size: 2rem;
-  cursor: pointer;
-  z-index: 10;
-    color: red;
-  background-color:black;
-  border:1px solid red ;
-}
-/* HEADER */
-

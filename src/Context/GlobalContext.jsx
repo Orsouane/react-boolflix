@@ -1,13 +1,7 @@
 import axios from "axios";
 import { createContext, useState, useEffect } from "react";
-
+import { url, REACT_APP_API_KEY, MovieEndPt, SerieEndPt } from "../Api/Config"
 const GlobalContext = createContext();
-
-const url = "https://api.themoviedb.org/3/";
-const apikey = "1178f9d163f3f6e6446146dc43c4f22e";
-const MovieEndPoint = "movie/popular";
-const SerieEndPoint = "tv/popular";
-
 const GlobalProvider = ({ children }) => {
   const [Movies, setMovies] = useState([]);
   const [Series, setSeries] = useState([]);
@@ -20,27 +14,31 @@ const GlobalProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    // Chiedo le dati per i Movies
+    //* FUNCTION TO GET MOVIES DATA
     const getMoviesData = async () => {
       try {
-        const res = await axios.get(`${url}${MovieEndPoint}?api_key=${apikey}`);
+        const res = await axios.get(`${url}${MovieEndPt}?api_key=${REACT_APP_API_KEY}`);
+        // UPDATING AFTER RECIEVING MOVIE DATA
         setMovies(res.data.results.slice(8, 16));
       } catch (error) {
+        // IN CASE THERE IS AN ERROR
         console.error("Error fetching movies:", error);
       }
     };
-    // Chiedo le dati per i Series
+    //* FUNCTION TO GET SERIES DATA
     const getSeriesData = async () => {
       try {
         const response = await axios.get(
-          `${url}${SerieEndPoint}?api_key=${apikey}`
+          `${url}${SerieEndPt}?api_key=${REACT_APP_API_KEY}`
         );
-        setSeries(response.data.results.slice(4, 12));
+        // UPDATING  SERIES AFTER RECIEVING DATA
+        setSeries(response.data.results);
       } catch (error) {
+        // IN CASE THERE IS AN ERROR
         console.error("Error fetching series:", error);
       }
     };
-    // chiamo le due funzione sia del movies che del series
+    //? CALL THE 2 FUNCTIONS AFTER RECIEVING DATA
     getSeriesData();
     getMoviesData();
   }, []);

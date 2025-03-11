@@ -1,7 +1,6 @@
+import React from "react";
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-// importo bootstrap
-import "bootstrap/dist/css/bootstrap.min.css";
 // File css
 import "./index.css";
 import App from "./App.jsx";

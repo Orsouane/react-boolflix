@@ -1,21 +1,29 @@
-import { useState } from "react";
-// importo il header
-import Header from "./Components/Header";
 // import il main
-import Main from "./Components/Main";
+import MainMovie from "./Components/MainMovie";
+import MainSerie from "./Components/MainSerie";
+// IMPORT CSS FILE
 import "./index.css";
-
+// HOME PAGE FILE
+import Home from "./Pages/Home";
+// IMPORT THE GLOBAL PROVIDER
 import { GlobalProvider } from "./Context/GlobalContext";
+// INTEGRATION OF THE ROUTING SYSTEM
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
+import DefaultLayout from "./Layout/DefaultLayout"
 function App() {
   return (
     <>
       <GlobalProvider>
-        <Header />
-
-        <div className="container bg-black text-white mt-3">
-          <Main />
-        </div>
+        <BrowserRouter>
+          <Routes>
+            <Route Component={DefaultLayout}>
+              <Route path="/" Component={Home} />
+              <Route path="/MainMovie" Component={MainMovie} />
+              <Route path="/MainSerie" Component={MainSerie} />
+            </Route>
+          </Routes>
+        </BrowserRouter>
       </GlobalProvider>
     </>
   );
