@@ -12,7 +12,7 @@ function Jumbutron() {
                 <div className='text-[2rem] sm:text-8xl text-center ' style={{ paddingBottom: "20px" }}>
                     Film, serie TV e tanto altro, <br /> senza limiti </div >
 
-                <NavLink to="/MainMovie" className="w-48 sm:w-64 lg:w-96 " style={{ display: "flex", margin: "auto", padding: "40px" }} >
+                <NavLink to="/MainMovie" className="w-48 sm:w-64 lg:w-96 boxShad2" style={{ display: "flex", margin: "auto", padding: "20px" }} >
                     <img src="./flags/Explore.png" alt="" />
                 </NavLink>
 

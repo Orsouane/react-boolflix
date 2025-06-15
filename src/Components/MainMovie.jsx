@@ -1,9 +1,9 @@
-import MovieResults from "./MovieResults";
+import MoviesPage from "../Pages/MoviesPage"
 
 function MainMovie() {
   return (
     <section className="bg-stone-900 ">
-      <MovieResults />
+      <MoviesPage />
     </section>
 
 

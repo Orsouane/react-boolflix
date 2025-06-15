@@ -1,9 +1,9 @@
 import React from 'react'
-import SeriesResults from "./SerieResults";
+import SeriesPage from '../Pages/SeriesPage'
 function MainSerie() {
     return (
         <div className='bg-stone-900 '>
-            <SeriesResults />
+            <SeriesPage />
         </div>
     )
 }

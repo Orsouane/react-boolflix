@@ -17,7 +17,7 @@ function VideoPlayer() {
         setCurrentIndex((currentIndex) => (currentIndex + 1) % videos.length);
     };
     return (
-        <div className='flex items-center justify-center' >
+        <div className='flex items-center justify-center' style={{ marginTop: "30px" }} >
             <ReactPlayer
                 url={videos[currentIndex]} // Usa l'URL del video corrente
                 // controls={true} // Mostra i controlli del player
