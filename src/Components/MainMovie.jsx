@@ -2,7 +2,7 @@ import MoviesPage from "../Pages/MoviesPage"
 
 function MainMovie() {
   return (
-    <section className="bg-stone-900 ">
+       <section className="bg-gradient-to-b from-black via-gray-900 to-black ">
       <MoviesPage />
     </section>
 

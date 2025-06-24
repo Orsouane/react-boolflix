@@ -71,8 +71,8 @@ function Form() {
   }
 
   return (
-    <div className="flex justify-center  gap-10 boxShad " style={{ paddingTop: "20px", paddingBottom: "20px", marginBottom: "20px" }} >
-      <section className="">
+    <div className="flex justify-center  gap-10 boxShad  bg-red-200 " style={{ paddingTop: "20px", paddingBottom: "20px", marginBottom: "20px" }} >
+            <section className="">
         <select
           className="form-select w-24 sm:w-36 lg:w-48 bg-stone-700   "
           aria-label="Default select example "

@@ -2,20 +2,12 @@ import React from 'react'
 import { NavLink } from "react-router-dom";
 function Header() {
     return (
-        <div className="bg-amber-200 flex justify-between " style={{ padding: "20px" }}>
-            <div className="w-25 text-danger px-10">
+         <div className="bg-gradient-to-b from-black via-gray-900 to-black text-white flex justify-between border-b border-red-900/20 shadow-2xl h-14" >
+            <div className=" text-danger px-10 py-2 flex items-center">
                 <NavLink to="/">
-                    <img style={{ width: "200px" }} src="/flags/logo.png" alt="" />
+                    <img  className=' h-8 w-20 p-1.5' src="/flags/logo.png" alt="" />
                 </NavLink>
 
-            </div>
-            <div className='flex gap-2 text-xs items-center text-red-900'>
-                <NavLink to="/">
-                    About
-                </NavLink>
-                <NavLink to="/">
-                    Contact us
-                </NavLink>
             </div>
         </div>
     )

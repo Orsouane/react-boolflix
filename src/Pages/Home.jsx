@@ -1,12 +1,11 @@
 
-import VideoPlayer from "../Components/VideoPlayer";
 import Jumbutron from "../Components/Jumbutron"
 function Home() {
   return (
     <>
-      <div className="bg-stone-900 ">
+            <div className="bg-gradient-to-b from-black via-gray-900 to-black text-white">
         <Jumbutron />
-        {/* <VideoPlayer /> */}
+        
       </div>
 
     </>

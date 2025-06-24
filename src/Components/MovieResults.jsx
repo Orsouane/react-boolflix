@@ -41,6 +41,7 @@ function CarouselMovie() {
         {Movies && Movies.length > 0 ? (
           Movies.slice(0, 6).map((movie) => (
             <div key={movie.id} className="w-[150px]">
+               <p className="bg-red-200">{movie.title}</p>
               <Card movie={movie} searchDone={searchDone} />
             </div>
           ))

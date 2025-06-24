@@ -15,7 +15,7 @@ const getImageUrl = (poster_path, size = "w342") => {
 function Card({ movie, searchDone }) {
   return (
     <div className=" ">
-      <div className="card-img-container w-20">
+      <div className="card-img-container w-20 sm:w-40 md:w-48">
         {/* Overlay che sarà visibile con il hover */}
         <div className="card-overlay ">
 

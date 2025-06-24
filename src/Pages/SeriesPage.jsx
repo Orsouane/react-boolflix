@@ -7,16 +7,16 @@ import Card from '../Components/Card';
 
 import Form from '../Components/Form';
 function SeriesPage() {
-     const itemsPerPage = 8; 
+     const itemsPerPage = 6; // ✅ Definisci itemsPerPage
 
      return (
           <>
-               <section className="w-[100%] h-[100vh]">
-                    <div className="text-white" style={{ paddingBottom: "80px" }}>
-                         <Form />
+               <section className="w-[100%] min-h-screen">
+                    <div className="text-white" style={{ paddingBottom: "40 px" }}>
+                         <Form className="pt-10" />
                     </div>
-                    <div className="flex justify-center">
-                         <img className="h-8" src="/flags/logo2.png" alt="" />
+                    <div className="flex justify-center sm:h-15">
+                         <img className="h-8 sm:h-15" src="/flags/logo2.png" alt="" />
                     </div>
                     <PaginatedItems itemsPerPage={itemsPerPage} />
                </section>
@@ -27,7 +27,7 @@ function Items({ currentItems }) {
      const { searchDone } = useContext(GlobalContext);
      return (
 
-          <section className='grid grid-cols-3 sm:grid-cols-4 place-items-center'>
+          <section className='grid grid-cols-3  lg:grid-cols-4 place-items-center gap-5 '>
                {currentItems &&
                     currentItems.map((movie) => (
                          <div key={movie.id} >
@@ -46,19 +46,16 @@ function PaginatedItems({ itemsPerPage }) {
      const [itemOffset, setItemOffset] = useState(0);
      const { Series } = useContext(GlobalContext);
      const endOffset = itemOffset + itemsPerPage;
-     console.log(`Loading items from ${itemOffset} to ${endOffset}`);
      const currentItems = Series.slice(itemOffset, endOffset);
      const pageCount = Math.ceil(Series.length / itemsPerPage);
      const handlePageClick = (event) => {
           const newOffset = (event.selected * itemsPerPage) % Series.length;
-          console.log(
-               `User requested page number ${event.selected}, which is offset ${newOffset}`
-          );
           setItemOffset(newOffset);
+          ì
      };
 
      return (
-          <>
+          <div className='flex flex-col gap-20 '>
                <Items currentItems={currentItems} />
                <ReactPaginate
                     breakLabel="..."
@@ -68,9 +65,12 @@ function PaginatedItems({ itemsPerPage }) {
                     pageCount={pageCount}
                     previousLabel="< previous"
                     renderOnZeroPageCount={null}
-                    className='flex bg-red-500 w-fit justify-center cursor-pointer'
+                    className='text-stone-400 flex gap-10 h-8   justify-center pt-10  '
+
                />
-          </>
+          </div>
+
+
      );
 }
 
