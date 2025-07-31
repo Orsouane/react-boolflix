@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react"
 
 export default function SplitText() {
      const containerRef = useRef(null)
-     const offset = window.innerWidth < 600 ? 570 : window.innerWidth < 1024 ? 950 : 820;
+     const offset = window.innerWidth < 600 ? 570 : window.innerWidth < 1024 ? 1100 : 650;
      useEffect(() => {
           document.fonts.ready.then(() => {
                if (!containerRef.current) return
@@ -45,12 +45,12 @@ export default function SplitText() {
      }, [])
 
      return (
-          <div className="container flex flex-col  h-[600px] md:h-[950px] " ref={containerRef} >
+          <div className="container flex flex-col  h-[650px] md:h-[1200px] lg:h-[730px] " ref={containerRef} >
 
                <h1 className="h1 flex items-center  ">
             Film, serie TV e tanto altro, senza limiti 
               </h1>
-               <div className='border border-red-800  w-fit p-2 mb-2 rounded-xl text-sm mt-10 ' onClick={() => window.scrollBy({ top: offset, behavior: 'smooth' })}>Tendenza <span className="animate-pulse"> 🔥</span></div>
+               <div className='border border-red-800  sm:w-48 sm:text-xl w-fit p-2 rounded-xl text-sm mt-10 cursor-pointer' onClick={() => window.scrollBy({ top: offset, behavior: 'smooth' })}>Tendenza <span className="animate-pulse"> 🔥</span></div>
                <Stylesheet />
           </div>
      )

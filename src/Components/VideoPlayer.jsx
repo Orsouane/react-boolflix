@@ -3,7 +3,7 @@ import { motion } from "motion/react"
 import ReactPlayer from 'react-player'; // Importa il componente ReactPlayer per riprodurre video
 
 function VideoPlayer() {
-   
+
      // Stato per tenere traccia dell'indice del video attuale
      const [currentIndex, setCurrentIndex] = useState(0);
      const [playing, setPlaying] = useState(false);
@@ -17,8 +17,8 @@ function VideoPlayer() {
      ]
      const videos =
           [`./videos/${titles[currentIndex]}.mp4`,
-               `./videos/${titles[currentIndex]}.mp4`,
-               `./videos/${titles[currentIndex]}.mp4`];
+          `./videos/${titles[currentIndex]}.mp4`,
+          `./videos/${titles[currentIndex]}.mp4`];
      // Funzione che viene eseguita quando il video finisce
      const handleEnd = () => {
           // Passa al video successivo ciclicamente  
@@ -27,14 +27,9 @@ function VideoPlayer() {
      return (
 
           <div className='flex items-center  border-[#0C101F] rounded-2xl p-1 border-4  shadow-2xl  w-[400px] md:w-[800px] lg:w-[1200px] 
-bg-gradient-to-br from-[#00010a] via-[#000620] to-[#000b30]
-
-
-
-
- ' >
+bg-gradient-to-br from-[#00010a] via-[#000620] to-[#000b30]'>
                <div className=' m-2 '>
-                
+
                     <ReactPlayer
                          url={videos[currentIndex]}
                          onEnded={handleEnd}
@@ -48,12 +43,12 @@ bg-gradient-to-br from-[#00010a] via-[#000620] to-[#000b30]
 
 
                     />
-                    <div className='flex flex-col mt-2 bg-cyan-800/20  w-full p-2 shadow-2xl  rounded-xl '> 
+                    <div className='flex flex-col mt-2 bg-cyan-800/10  w-full p-2 shadow-2xl  rounded-xl '>
                          <span className='font-extrabold'>{titles[currentIndex]} </span>
-                         <span className='font-extralight'>{description[currentIndex]} </span></div>  
+                         <span className='font-extralight'>{description[currentIndex]} </span></div>
                </div>
-             
-               
+
+
           </div>
 
 

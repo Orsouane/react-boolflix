@@ -5,11 +5,11 @@ const GlobalContext = createContext();
 const GlobalProvider = ({ children }) => {
   const [Movies, setMovies] = useState([]);
   const [Series, setSeries] = useState([]);
-  // lo stato della ricerca (inizialmente false (non è fatta la ricerca ancora))
+  //* lo stato della ricerca (inizialmente false (non è fatta la ricerca ancora))
   const [searchDone, setSearchDone] = useState(false);
-  // è true solo dopo la ricerca(Funzioine per gestire la ricerca )
+  //* è true solo dopo la ricerca(Funzioine per gestire la ricerca )
   const handleSearch = () => {
-    // quando la ricerca è fata aggiorno lo stato in "true"
+    //* quando la ricerca è fata aggiorno lo stato in "true"
     setSearchDone(true);
   };
 
