@@ -7,3 +7,8 @@ export const tvEndPoint = `search/tv?api_key=${REACT_APP_API_KEY}`;
 export const MovieEndPt = "movie/popular";
 export const SerieEndPt = "tv/popular";
 export const baseUrl = "http://image.tmdb.org/t/p/";
+
+
+//* movieLink: https://api.themoviedb.org/3/discover/movie?api_key=1178f9d163f3f6e6446146dc43c4f22e
+
+//* series link : https://api.themoviedb.org/3/discover/tv?api_key=1178f9d163f3f6e6446146dc43c4f22e

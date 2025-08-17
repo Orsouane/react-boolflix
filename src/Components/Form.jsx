@@ -1,5 +1,4 @@
 import axios from "axios";
-
 import { useState, useContext } from "react";
 import { GlobalContext } from "../Context/GlobalContext";
 import { url, REACT_APP_API_KEY, MovieEndpoint, tvEndPoint } from "../Api/Config"
@@ -54,14 +53,14 @@ function Form() {
           (item) => item.popularity < 500
         );
         setMovies(filtredResults);
-      } else if (selectOption === "serie_populare") {
-        const filtredResults = res.data.results.filter(
-          (item) => item.popularity > 1500
-        );
-        setSeries(filtredResults);
       } else if (selectOption === "serie_non_populare") {
         const filtredResults = res.data.results.filter(
-          (item) => item.popularity < 1500
+          (item) => item.popularity > 200
+        );
+        setSeries(filtredResults);
+      } else if (selectOption === "serie_populare") {
+        const filtredResults = res.data.results.filter(
+          (item) => item.popularity < 200
         );
         setSeries(filtredResults);
       }
@@ -71,10 +70,10 @@ function Form() {
   }
 
   return (
-    <div className="flex justify-center  gap-10 boxShad  bg-red-200 " style={{ paddingTop: "20px", paddingBottom: "20px", marginBottom: "20px" }} >
+    <div className="flex justify-center  gap-10 boxShad border border-red-500 w-fit  m-auto  p-4 rounded-md  py-2 pt-3 mb-5 text-white "  >
             <section className="">
         <select
-          className="form-select w-24 sm:w-36 lg:w-48 bg-stone-700   "
+          className="form-select w-24 sm:w-36 lg:w-48 border p-1 rounded-md mt-0.5  border-stone-500   bg-black "
           aria-label="Default select example "
           onChange={handleSelectioneChange}
           value={selection}
@@ -92,13 +91,13 @@ function Form() {
         <nav className="navbar navbar-light flex  ">
           <form className="form-inline flex gap-2  " onSubmit={handleSubmit}>
             <input
-              className="form-control mr-sm-2 w-24 border-1 border-stone-500 sm:w-36 lg:w-48"
+              className="form-control mr-sm-2 w-24 border border-stone-500 sm:w-36 lg:w-48 rounded-md pl-1 text-sm"
               type="search"
-              placeholder="Search "
+              placeholder="Search.. "
               aria-label="Search"
               onChange={handlenput}
             />
-            <button className="btn  border-1 border-stone-500  " type="submit">
+            <button className="btn p-1 rounded-md border-1 border-stone-500  " type="submit">
               Search
             </button>
           </form>

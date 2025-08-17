@@ -10,9 +10,10 @@ function MoviesResults() {
   return (
     <>
       <section className="w-[100%] h-[100vh]"   >
-        <div className="text-white" style={{ paddingBottom: "80px" }} >
-          <Form />
+        <div className="text-white bg-red-200"  >
+            <Form />
         </div>
+              
         <div className="flex justify-center  " >
           <img className="h-8 " src="/flags/logo1.png" alt="" />
 
@@ -41,7 +42,7 @@ function CarouselMovie() {
         {Movies && Movies.length > 0 ? (
           Movies.slice(0, 6).map((movie) => (
             <div key={movie.id} className="w-[150px]">
-               <p className="bg-red-200">{movie.title}</p>
+               <p >{movie.title}</p>
               <Card movie={movie} searchDone={searchDone} />
             </div>
           ))

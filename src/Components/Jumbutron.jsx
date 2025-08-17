@@ -11,14 +11,14 @@ function Jumbutron() {
      const RefScroll = useRef()
 
      return (
-          <div className="text-white flex flex-col items-center justify-center">
-               <section className='boxShad text-center' style={{ padding: "10px" }}>
+          <div className="text-white flex flex-col items-center justify-center  ">
+               <section className='boxShad text-center ' style={{ padding: "10px" }}>
                     <SplitText />
                </section>
 
-               <section className='flex flex-col gap-20'>
+               <section className='flex flex-col gap-5 mt-5'>
                     <section>
-                         <NavLink to="/MainMovie" className="group bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-bold rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg flex gap-1 items-center justify-center" style={{ padding: 5, marginBottom: 20 }}>
+                         <NavLink to="/MainMovie" className="text-white bg-[#FF0000]  font-bold rotate-2 transition-all duration-300 transform hover:scale-105 shadow-lg flex gap-1 items-center justify-center w-50 m-auto h-14  mt-3 border-2 " style={{ padding: 5, marginBottom: 20 }}>
                               <span ref={RefScroll}>🎬 </span> See More Movies
                               <span className='animate-bounce' style={{ animationDelay: '200ms' }}> .</span>
                               <span className='animate-bounce' style={{ animationDelay: '400ms' }}>.</span>
@@ -28,7 +28,7 @@ function Jumbutron() {
                     </section>
 
                     <section className=''>
-                         <NavLink to="/MainMovie" className="group bg-gradient-to-r from-green-600 to-teal-600 hover:from-green-700 hover:to-teal-700 py-3 px-6 rounded-lg hover:scale-105 shadow-lg text-white font-bold transition-all duration-300 transform flex gap-1 items-center justify-center" style={{ padding: 5, marginTop: 20, marginBottom: 20 }}>
+                         <NavLink to="/MainSerie" className=" bg-[#FF0000]  w-50 h-14 m-auto py-3 px-6  rotate-2 hover:scale-105 shadow-lg text-white font-bold transition-all duration-300 transform flex gap-1 items-center justify-center border-2" style={{ padding: 5, marginTop: 20, marginBottom: 20 }}>
                               <span>📺 </span> See More Series
                               <span className='animate-bounce' style={{ animationDelay: '200ms' }}> .</span>
                               <span className='animate-bounce' style={{ animationDelay: '400ms' }}>.</span>
@@ -48,7 +48,7 @@ function CarouselMovie() {
           infinite: true,
           speed: 500,
           arrows: true,
-          slidesToShow: window.innerWidth < 600 ? 3 : window.innerWidth < 1200 ? 3 : 6,
+          slidesToShow: window.innerWidth < 600 ? 1 : window.innerWidth < 1200 ? 2 : 4,
           slidesToScroll: 1,
           className: "!mx-auto w-[290px] md:w-[620px] lg:w-[1200px]"
      };
@@ -60,7 +60,7 @@ function CarouselMovie() {
                          (window.innerWidth < 600
                               ? Movies.slice(0, 3)
                               : window.innerWidth < 1200
-                                   ? Movies.slice(0, 4)
+                                   ? Movies.slice(0, 6)
                                    : Movies.slice(0, 6)
                          ).map((movie) => (
                               <div key={movie.id}>
@@ -84,9 +84,9 @@ function ExploreSerie() {
           dots: true,
           speed: 500,
           arrows: true,
-          slidesToShow: window.innerWidth < 600 ? 3 : window.innerWidth < 1200 ? 3 : 6,
+          slidesToShow: window.innerWidth < 600 ? 1 : window.innerWidth < 1200 ? 2 : 4,
           slidesToScroll: 1,
-          className: "mx-auto w-[290px] md:w-[620px] lg:w-[1200px]"
+          className: "!mx-auto w-[290px] md:w-[620px] lg:w-[1200px]"
      };
      const { Series, searchDone } = useContext(GlobalContext);
 
@@ -94,7 +94,7 @@ function ExploreSerie() {
           <section className="flex justify-center pb-50">
                <Slider {...settings}>
                     {Series && Series.length > 0 ? (
-                         Series.slice(0, 6).map((Serie) => (
+                         Series.slice(0, 3).map((Serie) => (
                               <div key={Serie.id}>
                                    <p className='text-xs'>
                                         {Serie.original_name.length > 12 ? Serie.original_name.slice(0, 12) + "..." : Serie.original_name}
