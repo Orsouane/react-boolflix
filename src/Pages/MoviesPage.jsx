@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 import ReactPaginate from 'react-paginate';
 import { useState, useContext } from "react";
@@ -7,21 +7,28 @@ import Card from '../Components/Card';
 
 import Form from '../Components/Form';
 function MoviesPage() {
-     const itemsPerPage = window.innerWidth < 600 ? 4 : window.innerWidth < 1200 ? 4 : 4// ✅ Definisci itemsPerPage //  itemsPerPage
+     const [itemsPerPage, setItemsPerPage] = useState(
+          window.innerWidth < 600 ? 4 : window.innerWidth < 1200 ? 4 : 4
+     );
+     useEffect(() => {
+          const handleResize = () => {
+               setItemsPerPage(window.innerWidth < 600 ? 4 : window.innerWidth < 1200 ? 4 : 4);
+          };
+          window.addEventListener("resize", handleResize);
+          return () => window.removeEventListener("resize", handleResize);
+     }, []);
 
-    return (
-        <>
-              <section className="w-[100%] min-h-screen">
-                <div className="text-white" style={{ paddingBottom: "40 px" }}>
+     return (
+          <section className="w-[100%] min-h-screen">
+               <div className="text-white" style={{ paddingBottom: "40px" }}>
                     <Form className="pt-10" />
-                </div>
-                <div className="flex justify-center sm:h-15">
+               </div>
+               <div className="flex justify-center sm:h-15">
                     <img className="h-8 sm:h-15" src="/flags/logo1.png" alt="" />
-                </div>
-                <PaginatedItems itemsPerPage={itemsPerPage}/>
-            </section>
-        </>
-    );
+               </div>
+               <PaginatedItems itemsPerPage={itemsPerPage} />
+          </section>
+     );
 }
 function Items({ currentItems }) {
     const { searchDone } = useContext(GlobalContext);
@@ -47,6 +54,7 @@ function PaginatedItems({ itemsPerPage }) {
     const [itemOffset, setItemOffset] = useState(0);
     const { Movies } = useContext(GlobalContext);
     const endOffset = itemOffset + itemsPerPage;
+    
     const currentItems = Movies.slice(itemOffset, endOffset);
     const pageCount = Math.ceil(Movies.length / itemsPerPage);
     const handlePageClick = (event) => {

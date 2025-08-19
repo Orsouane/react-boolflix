@@ -20,6 +20,7 @@ const GlobalProvider = ({ children }) => {
         const res = await axios.get(`${url}${MovieEndPt}?api_key=${REACT_APP_API_KEY}`);
         // UPDATING AFTER RECIEVING MOVIE DATA
         setMovies(res.data.results);
+
       } catch (error) {
         // IN CASE THERE IS AN ERROR
         console.error("Error fetching movies:", error);
